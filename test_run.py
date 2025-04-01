@@ -9,6 +9,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 import pytest
 from pom.page.login_page import loginpage
 from pom.page.home_page import homepage
+from pom.page.cart_page import cartpage
 @pytest.fixture()
 def driver():
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
@@ -76,5 +77,56 @@ def test_home(driver):
     #click sort order
     home_page.click_sort()
     time.sleep(2)
+
+    #scroll
+    home_page.scroll_page()
+    
+
+
+#test cart page
+def test_cart(driver):
+    login(driver)
+    cart_page=cartpage(driver)
+    #click add cart
+    cart_page.click_add_cart()
+    time.sleep(1)
+    #click remove cart
+    cart_page.click_remove_cart()
+    time.sleep(1)
+
+    #click cart
+    cart_page.click_cart()
+    time.sleep(1)
+
+    #checkout
+    cart_page.click_checkout()
+    time.sleep(1)
+
+    #enter checkout detail
+    cart_page.enter_detail("sachin", "budhathoki", "224")
+    time.sleep(1)
+
+    cart_page.scroll_page()
+
+
+    #click checkout
+    cart_page.click_continue()
+    time.sleep(1)
+
+    #click finish
+    cart_page.click_finish()
+    time.sleep(1)
+
+    #click home back
+    cart_page.click_home()
+    time.sleep(1)
+
+
+
+
+
+
+
+
 
 

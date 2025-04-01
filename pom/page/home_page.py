@@ -25,5 +25,14 @@ class homepage:
         time.sleep(2)
         self.driver.find_element(*self.sort_option).click()
 
+    def scroll_page(self):
+        page_height=self.driver.execute_script("return document.body.scrollHeight")
+        scroll_speed=200
+        scroll_iteration=int(page_height/scroll_speed)
+        #loop to perform scroll
+        for _ in range(scroll_iteration):
+            self.driver.execute_script(f"window.scrollBy(0,{scroll_speed});") 
+            time.sleep(2)
+
 
         
