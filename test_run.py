@@ -15,26 +15,25 @@ def driver():
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
     yield driver
     driver.quit()
-
-def login():
-    login_page = loginpage(driver)
+def login(driver):
+    login_page=loginpage(driver)
     login_page.open_page("https://www.saucedemo.com/")
     driver.maximize_window()
     time.sleep(3)
-    # Send username
+    #send username
     login_page.enter_username("standard_user")
     time.sleep(1)
-    # Send password
+    # send password
     login_page.enter_password("secret_sauce")
     time.sleep(1)
+
     login_page.click_login()
-    time.sleep(3)
+    time.sleep(4)
 
 #parameter values for username and password
 @pytest.mark.parametrize("username, password", [
-    ("locked_out_user", "secret_sauce"),
-    ("standard_user", "secret_sauce"),
-    ("visua_user", "secret_sauce"),#wrong user
+    ("problem_user", "secret_sauce"),
+    ("visual", "secret_sauce"),#wrong user
 ])
 #for login test
 def test_login(driver, username, password):
@@ -120,13 +119,3 @@ def test_cart(driver):
     #click home back
     cart_page.click_home()
     time.sleep(1)
-
-
-
-
-
-
-
-
-
-
