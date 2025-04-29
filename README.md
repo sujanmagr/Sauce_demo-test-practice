@@ -1,14 +1,19 @@
-**Web UI Testing Documentation**
+****Web UI Testing Documentation****
+
 **Objective**
+
 To automate and validate core functionalities of a web-based e-commerce application using Selenium
 WebDriver and Python (with Pytest). This project tests login, homepage navigation, and shopping cart
-features. Tools & Technologies Used
+features. 
+**Tools & Technologies Used**
 - Python
 - Selenium WebDriver
 - Pytest - WebDriver Manager
 - Page Object Model (POM)
 - ChromeDriver
-Project Structure
+  
+**Project Structure**
+
 project_root/
 test/
 test_main.py
@@ -17,13 +22,22 @@ pom/
     login_page.py
       home_page.py
         cart_page.py
-Test Workflow Overview
+        
+**Test Workflow Overview**
 1. Login Tests
 2. Home Page Navigation
 3. Cart Functionality
-Test Cases Breakdown
-test_login: - Checks multiple login scenarios. test_home: - Tests menu, cart, and sort actions. test_cart: - Adds/removes items and completes checkout.
-Test Cases
+
+
+**Test Cases Breakdown**
+
+test_login: - Checks multiple login scenarios.
+
+test_home: - Tests menu, cart, and sort actions. 
+
+test_cart: - Adds/removes items and completes checkout.
+
+**Test Cases**
 1. Login Page
    ![image](https://github.com/user-attachments/assets/83ec2bba-3e47-4fee-87db-88907920f188)
 
@@ -43,3 +57,5 @@ test_login (valid) - Passed
 test_login (invalid) - Failed
 test_home - Passed
 test_cart - Passed
+
+**Note:**Test cases are not actually correct and properly prepared.
